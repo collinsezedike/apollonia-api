@@ -1,0 +1,25 @@
+{
+  "name": "apollonia",
+  "version": "1.0.0",
+  "description": "A fundamental employee management CRUD web app to store information about employees and departments at Apollonia Dental Practice, and perform CRUD operations on the employee data, using Node.js and MongoDB.",
+  "main": "src/server.ts",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "ts-node-dev src/server.ts"
+  },
+  "keywords": [
+    "Employee management"
+  ],
+  "author": "Collins Ezedike-egwom",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "dotenv": "^16.3.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
+}
