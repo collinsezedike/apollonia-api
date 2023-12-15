@@ -1,9 +1,18 @@
 import express, { Request, Response } from "express";
 
-import { PORT } from "./config";
+import { connectDB, PORT } from "./config";
 
 const app = express();
 
 app.get("/", (req: Request, res: Response) => res.send("Apollonia 🚀🚀🚀"));
 
-app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
+const startServer = async () => {
+  try {
+    await connectDB();
+    app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+startServer();
