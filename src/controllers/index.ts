@@ -6,6 +6,9 @@ import deleteDepartmentById from "./department/deleteDepartmentById";
 
 import addNewStaff from "./staff/addNewStaff";
 import getAllStaff from "./staff/getAllStaff";
+import getStaffById from "./staff/getStaffById";
+import updateStaffById from "./staff/updateStaffById";
+import deleteStaffById from "./staff/deleteStaffById";
 
 export {
   // Department
@@ -18,4 +21,7 @@ export {
   // Staff
   addNewStaff,
   getAllStaff,
+  getStaffById,
+  updateStaffById,
+  deleteStaffById,
 };
