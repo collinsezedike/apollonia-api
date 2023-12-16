@@ -1,3 +1,11 @@
-import { PORT } from "./env";
+import { connectDB } from "./db";
+import { DATABASE_URI, PORT } from "./env";
 
-export { PORT };
+export {
+  // Enviroment variables
+  PORT,
+  DATABASE_URI,
+
+  // DB
+  connectDB,
+};
