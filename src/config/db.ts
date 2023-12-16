@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 
 import { DATABASE_URI } from ".";
 
-export const connectDB = async () => {
-  const conn = mongoose.createConnection(DATABASE_URI!);
-  conn.on("connected", () => console.log("Successfully connected to database"));
+export const connectDB = () => {
+  mongoose
+    .connect(DATABASE_URI!)
+    .then(() => console.log("Successfully connected to database"));
 };
