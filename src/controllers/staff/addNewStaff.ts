@@ -14,8 +14,14 @@ const addNewStaff = async (req: Request, res: Response) => {
     }
 
     const department = await Department.findById(department_id);
-    department!.staff_count += 1;
-    await department!.save();
+    if (!department) {
+      return res.status(StatusCodes.NOT_FOUND).json({
+        status: "error",
+        message: `Department with id '${department_id}' does not exist`,
+      });
+    }
+    department.staff_count += 1;
+    await department.save();
 
     const newStaff = await new Staff({ name, surname, department_id }).save();
     return res
