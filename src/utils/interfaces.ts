@@ -8,5 +8,5 @@ export interface IDepartment {
 export interface IStaff {
   name: string;
   surname: string;
-  department: Types.ObjectId;
+  department_id: Types.ObjectId;
 }

@@ -12,7 +12,7 @@ const StaffSchema = new mongoose.Schema<IStaff>(
       type: String,
       required: true,
     },
-    department: { type: mongoose.SchemaTypes.ObjectId },
+    department_id: { type: mongoose.SchemaTypes.ObjectId },
   },
   { timestamps: true }
 );
