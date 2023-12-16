@@ -1,3 +1,4 @@
 import departmentRouter from "./department";
+import staffRouter from "./staff";
 
-export { departmentRouter };
+export { departmentRouter, staffRouter };
