@@ -12,29 +12,11 @@ const addNewStaff = async (req: Request, res: Response) => {
         .status(StatusCodes.BAD_REQUEST)
         .json({ status: "error", message: "Missing required body parameter" });
     }
-
-    const department = await Department.findById(department_id);
-    if (!department) {
-      return res.status(StatusCodes.NOT_FOUND).json({
-        status: "error",
-        message: `Department with id '${department_id}' does not exist`,
-      });
-    }
-    department.staff_count += 1;
-    await department.save();
-
     const newStaff = await new Staff({ name, surname, department_id }).save();
     return res
       .status(StatusCodes.CREATED)
       .json({ status: "success", data: newStaff });
   } catch (err: any) {
-    if (err instanceof Error.CastError) {
-      return res.status(StatusCodes.BAD_REQUEST).json({
-        status: "error",
-        message: "Invalid body parameter: department_id",
-      });
-    }
-
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
       .json({ status: "error", message: err.message });

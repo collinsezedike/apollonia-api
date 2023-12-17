@@ -6,7 +6,7 @@ import { Department } from "../../models";
 
 const updateDepartmentById = async (req: Request, res: Response) => {
   try {
-    const { staff_count } = req.body;
+    const { name } = req.body;
     const { department_id } = req.params;
     const department = await Department.findById(department_id);
     if (!department) {
@@ -15,9 +15,7 @@ const updateDepartmentById = async (req: Request, res: Response) => {
         message: `Department with id '${department_id}' does not exist`,
       });
     }
-    department.staff_count = staff_count?.trim()
-      ? staff_count
-      : department.staff_count;
+    department.name = name?.trim() ? name : department.name;
     await department.save();
     return res
       .status(StatusCodes.OK)
