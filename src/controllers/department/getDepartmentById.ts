@@ -20,14 +20,16 @@ const getDepartmentById = async (req: Request, res: Response) => {
     });
   } catch (err: any) {
     if (err instanceof Error.CastError) {
-      return res
-        .status(StatusCodes.BAD_REQUEST)
-        .json({ status: "error", message: "Invalid department_id" });
+      return res.status(StatusCodes.BAD_REQUEST).json({
+        status: "error",
+        message: "Invalid department_id",
+      });
     }
 
-    return res
-      .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ status: "error", message: err.message });
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      status: "error",
+      message: err.message,
+    });
   }
 };
 

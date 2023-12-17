@@ -17,19 +17,22 @@ const updateDepartmentById = async (req: Request, res: Response) => {
     }
     department.name = name?.trim() ? name : department.name;
     await department.save();
-    return res
-      .status(StatusCodes.OK)
-      .json({ status: "success", data: department });
+    return res.status(StatusCodes.OK).json({
+      status: "success",
+      data: department,
+    });
   } catch (err: any) {
     if (err instanceof Error.CastError) {
-      return res
-        .status(StatusCodes.BAD_REQUEST)
-        .json({ status: "error", message: "Invalid department_id" });
+      return res.status(StatusCodes.BAD_REQUEST).json({
+        status: "error",
+        message: "Invalid department_id",
+      });
     }
 
-    return res
-      .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ status: "error", message: err.message });
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      status: "error",
+      message: err.message,
+    });
   }
 };
 

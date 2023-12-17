@@ -15,7 +15,7 @@ const updateStaffById = async (req: Request, res: Response) => {
         message: `staff with id '${staff_id}' does not exist`,
       });
     }
-    
+
     staff.name = name?.trim() ? name : staff.name;
     staff.surname = surname?.trim() ? surname : staff.surname;
     staff.department_id = department_id?.trim()
@@ -25,9 +25,10 @@ const updateStaffById = async (req: Request, res: Response) => {
     return res.status(StatusCodes.OK).json({ status: "success", data: staff });
   } catch (err: any) {
     if (err instanceof Error.CastError) {
-      return res
-        .status(StatusCodes.BAD_REQUEST)
-        .json({ status: "error", message: "Invalid staff_id" });
+      return res.status(StatusCodes.BAD_REQUEST).json({
+        status: "error",
+        message: "Invalid staff_id",
+      });
     } else if (err instanceof Error.ValidationError) {
       return res.status(StatusCodes.BAD_REQUEST).json({
         status: "error",
@@ -35,9 +36,10 @@ const updateStaffById = async (req: Request, res: Response) => {
       });
     }
 
-    return res
-      .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ status: "error", message: err.message });
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      status: "error",
+      message: err.message,
+    });
   }
 };
 
