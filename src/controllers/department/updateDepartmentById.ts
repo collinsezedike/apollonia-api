@@ -22,13 +22,6 @@ const updateDepartmentById = async (req: Request, res: Response) => {
       data: department,
     });
   } catch (err: any) {
-    if (err instanceof Error.CastError) {
-      return res.status(StatusCodes.BAD_REQUEST).json({
-        status: "error",
-        message: "Invalid department_id",
-      });
-    }
-
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
       status: "error",
       message: err.message,

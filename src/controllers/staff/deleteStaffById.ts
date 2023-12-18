@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
-import { Error } from "mongoose";
 
 import { Staff } from "../../models";
 
@@ -20,13 +19,6 @@ const deleteStaffById = async (req: Request, res: Response) => {
       message: `Successfully deleted staff with id '${staff_id}'`,
     });
   } catch (err: any) {
-    if (err instanceof Error.CastError) {
-      return res.status(StatusCodes.BAD_REQUEST).json({
-        status: "error",
-        message: "Invalid staff_id",
-      });
-    }
-
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
       status: "error",
       message: err.message,

@@ -20,13 +20,6 @@ const deleteDepartmentById = async (req: Request, res: Response) => {
       message: `Successfully deleted department with id '${department_id}'`,
     });
   } catch (err: any) {
-    if (err instanceof Error.CastError) {
-      return res.status(StatusCodes.BAD_REQUEST).json({
-        status: "error",
-        message: "Invalid department_id",
-      });
-    }
-
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
       status: "error",
       message: err.message,
