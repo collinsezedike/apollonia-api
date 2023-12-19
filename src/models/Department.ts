@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 import { IDepartment } from "../utils";
 
-const DepartmentSchema = new mongoose.Schema<IDepartment>(
+const DepartmentSchema = new mongoose.Schema(
   {
     _id: {
       type: mongoose.SchemaTypes.ObjectId,
@@ -17,4 +17,4 @@ const DepartmentSchema = new mongoose.Schema<IDepartment>(
   { timestamps: true }
 );
 
-export default mongoose.model("Department", DepartmentSchema);
+export default mongoose.model<IDepartment>("Department", DepartmentSchema);

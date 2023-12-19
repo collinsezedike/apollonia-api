@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 import { IStaff } from "../utils";
 
-const StaffSchema = new mongoose.Schema<IStaff>(
+const StaffSchema = new mongoose.Schema(
   {
     _id: {
       type: mongoose.SchemaTypes.ObjectId,
@@ -26,4 +26,4 @@ const StaffSchema = new mongoose.Schema<IStaff>(
   { timestamps: true }
 );
 
-export default mongoose.model("Staff", StaffSchema);
+export default mongoose.model<IStaff>("Staff", StaffSchema);
