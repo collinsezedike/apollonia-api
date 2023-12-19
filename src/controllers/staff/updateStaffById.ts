@@ -18,7 +18,7 @@ const updateStaffById = async (req: Request, res: Response) => {
     staff.name = name?.trim() ? name : staff.name;
     staff.surname = surname?.trim() ? surname : staff.surname;
     staff.department = department_id?.trim() ? department_id : staff.department;
-    await staff.save();
+    await (await staff.save()).populate("department", ["_id", "name"]);
     return res.status(StatusCodes.OK).json({ status: "success", data: staff });
   } catch (err: any) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

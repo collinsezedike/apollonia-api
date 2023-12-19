@@ -5,7 +5,7 @@ import { Staff } from "../../models";
 
 const getAllStaff = async (req: Request, res: Response) => {
   try {
-    const allStaff = await Staff.find();
+    const allStaff = await Staff.find().populate("department", ["_id", "name"]);
     return res.status(StatusCodes.OK).json({
       status: "success",
       data: allStaff,

@@ -6,7 +6,10 @@ import { Staff } from "../../models";
 const getStaffById = async (req: Request, res: Response) => {
   try {
     const { staff_id } = req.params;
-    const staff = await Staff.findById(staff_id);
+    const staff = await Staff.findById(staff_id).populate("department", [
+      "_id",
+      "name",
+    ]);
     if (!staff) {
       return res.status(StatusCodes.NOT_FOUND).json({
         status: "error",
