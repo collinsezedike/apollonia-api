@@ -12,7 +12,11 @@ const addNewStaff = async (req: Request, res: Response) => {
         message: "Missing required body parameter",
       });
     }
-    const newStaff = await new Staff({ name, surname, department_id }).save();
+    const newStaff = await new Staff({
+      name,
+      surname,
+      department: department_id,
+    }).save();
     return res.status(StatusCodes.CREATED).json({
       status: "success",
       data: newStaff,
