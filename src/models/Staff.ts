@@ -17,8 +17,9 @@ const StaffSchema = new mongoose.Schema<IStaff>(
       type: String,
       required: true,
     },
-    department_id: {
+    department: {
       type: mongoose.SchemaTypes.ObjectId,
+      ref: "Department",
       cast: [null, (value: any) => `'${value}' is not a valid department id`],
     },
   },

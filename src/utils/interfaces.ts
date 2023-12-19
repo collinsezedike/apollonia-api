@@ -9,5 +9,5 @@ export interface IStaff {
   _id: Types.ObjectId;
   name: string;
   surname: string;
-  department_id: Types.ObjectId;
+  department: Types.ObjectId;
 }
