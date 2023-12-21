@@ -1,0 +1,8 @@
+{
+    "recursive": true,
+    "timeout": 10000,
+    "color": true,
+    "extension": ["ts"],
+    "spec": ["./src/__tests__"],
+    "exit": true
+}

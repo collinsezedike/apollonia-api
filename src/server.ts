@@ -1,22 +1,11 @@
-import express, { Request, Response } from "express";
+import { connectDB, DATABASE_URI, PORT } from "./config";
+import buildApp from "./app";
 
-import { connectDB, PORT } from "./config";
-import { departmentRouter, staffRouter } from "./routes";
-
-const app = express();
-
-// Middlewares
-app.use(express.json());
-
-// Routes
-app.use("/api/v1/departments", departmentRouter);
-app.use("/api/v1/staffs", staffRouter);
-
-app.get("/", (req: Request, res: Response) => res.send("Apollonia 🚀🚀🚀"));
+const app = buildApp();
 
 const startServer = async () => {
   try {
-    connectDB();
+    connectDB(DATABASE_URI!);
     app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
   } catch (err: any) {
     console.error(err);
