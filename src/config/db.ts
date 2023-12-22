@@ -1,9 +1,13 @@
 import mongoose from "mongoose";
 
-import { DATABASE_URI } from ".";
-
-export const connectDB = () => {
+export const connectDB = (database_uri: string) => {
   mongoose
-    .connect(DATABASE_URI!)
+    .connect(database_uri)
     .then(() => console.log("Successfully connected to database"));
+};
+
+export const disconnectDB = () => {
+  mongoose
+    .disconnect()
+    .then(() => console.log("Database disconnected successfully"));
 };

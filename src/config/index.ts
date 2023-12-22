@@ -1,4 +1,4 @@
-import { connectDB } from "./db";
+import { connectDB, disconnectDB } from "./db";
 import { DATABASE_URI, PORT } from "./env";
 
 export {
@@ -8,4 +8,5 @@ export {
 
   // DB
   connectDB,
+  disconnectDB
 };
