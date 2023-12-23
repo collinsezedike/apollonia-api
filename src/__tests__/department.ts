@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import supertest from "supertest";
 
 import buildApp from "../app";
-import { connectDB, disconnectDB, DATABASE_URI } from "../config";
+import { connectDB, DATABASE_URI } from "../config";
 import { isDepartment } from "../utils";
 
 const URL_PATH = "/api/v1/departments";
