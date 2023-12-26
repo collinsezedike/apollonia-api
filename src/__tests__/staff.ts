@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import supertest from "supertest";
 
 import buildApp from "../app";
-import { connectDB, DATABASE_URI } from "../config";
+import { connectDB, DATABASE_URI, disconnectDB } from "../config";
 import { isStaff } from "../utils";
 
 const URL_PATH = "/api/v1/staffs";
@@ -12,7 +12,7 @@ const DEPARTMENT_URL_PATH = "/api/v1/departments";
 const app = buildApp();
 
 describe("Staff", () => {
-  before(async () => {
+  before(() => {
     connectDB(DATABASE_URI!);
   });
 
@@ -177,5 +177,8 @@ describe("Staff", () => {
         }
       });
     });
+  });
+  after(() => {
+    disconnectDB();
   });
 });
