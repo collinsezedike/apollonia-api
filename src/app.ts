@@ -1,6 +1,7 @@
 import cors from "cors";
 import express, { Request, Response } from "express";
 
+import { validateAPIToken } from "./middlewares";
 import { departmentRouter, staffRouter } from "./routes";
 
 export default () => {
@@ -9,6 +10,7 @@ export default () => {
   // Middlewares
   app.use(cors());
   app.use(express.json());
+  app.use(validateAPIToken);
 
   // Routes
   app.use("/api/v1/departments", departmentRouter);
