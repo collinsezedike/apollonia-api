@@ -1,6 +1,6 @@
 import swaggerAutogen from "swagger-autogen";
 
-import { SERVER_URL } from "./src/config";
+import { SERVER_URL } from ".";
 
 const doc = {
   info: {
@@ -36,6 +36,6 @@ const doc = {
 };
 
 const outputFile = "./swagger.json";
-const routes = ["./src/app.ts"];
+const routes = ["./../app.ts"];
 
 swaggerAutogen({ openapi: "3.0.0" })(outputFile, routes, doc);

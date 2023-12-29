@@ -4,7 +4,7 @@ import swaggerUI from "swagger-ui-express";
 
 // import { validateAPIToken } from "./middlewares";
 import { departmentRouter, staffRouter } from "./routes";
-import swaggerJSON from "../swagger.json";
+import { swaggerJSON } from "./config";
 
 export default () => {
   const app = express();

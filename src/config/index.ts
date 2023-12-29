@@ -1,5 +1,6 @@
 import { connectDB, disconnectDB } from "./db";
 import { APIKEY, DATABASE_URI, PORT, SERVER_URL } from "./env";
+import swaggerJSON from "./swagger.json";
 
 export {
   // Enviroment variables
@@ -11,4 +12,7 @@ export {
   // DB
   connectDB,
   disconnectDB,
+
+  // Swagger
+  swaggerJSON,
 };
