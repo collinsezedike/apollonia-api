@@ -9,7 +9,7 @@
     "dev": "ts-node-dev src/server.ts",
     "test": "ts-mocha",
     "dev-test": "ts-mocha --watch",
-    "swagger": "ts-node swagger.ts"
+    "swagger": "ts-node src/config/swagger.ts"
   },
   "keywords": [
     "Employee management"
