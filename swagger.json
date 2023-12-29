@@ -7,8 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:5000",
-      "description": "Server on my local machine"
+      "url": "http://localhost:5000"
     }
   ],
   "paths": {
