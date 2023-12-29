@@ -4,6 +4,7 @@
   "description": "A fundamental employee management CRUD web app to store information about employees and departments at Apollonia Dental Practice, and perform CRUD operations on the employee data, using Node.js and MongoDB.",
   "main": "src/server.ts",
   "scripts": {
+    "build": "tsc",
     "start": "node dist/server.js",
     "dev": "ts-node-dev src/server.ts",
     "test": "ts-mocha",
