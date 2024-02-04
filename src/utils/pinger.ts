@@ -1,10 +1,9 @@
-import http from "http";
+import https from "https";
 import { SERVER_URL } from "../config";
 
 const pinger = () => {
   try {
-    const protocol = SERVER_URL?.split("//")[0];
-    http.get(SERVER_URL!, { protocol }, (res) => {
+    https.get(SERVER_URL!, (res) => {
       const ping = res.statusCode == 200 ? "Successful" : "Unsuccessful";
       console.log(`${ping} ping`);
     });
