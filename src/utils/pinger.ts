@@ -3,7 +3,8 @@ import { SERVER_URL } from "../config";
 
 const pinger = () => {
   try {
-    http.get(SERVER_URL!, (res) => {
+    const protocol = SERVER_URL?.split("//")[0];
+    http.get(SERVER_URL!, { protocol }, (res) => {
       const ping = res.statusCode == 200 ? "Successful" : "Unsuccessful";
       console.log(`${ping} ping`);
     });
