@@ -8,7 +8,7 @@ const pinger = () => {
       console.log(`${ping} ping`);
     });
   } catch (err: any) {
-    console.log("Error occured during ping");
+    console.log("Error occured during ping", err.message);
   }
 };
 
